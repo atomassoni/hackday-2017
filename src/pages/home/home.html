@@ -1,14 +1,16 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Scan for devices
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <button (click)="scan()" ion-button color="secondary">Scan</button>
+  <ion-list>
+    <button ion-item *ngFor="let device of deviceList" (click)="goToDevice(device)">
+      {{ device.name || device.id }}
+    </button>  
+  </ion-list>
 </ion-content>
